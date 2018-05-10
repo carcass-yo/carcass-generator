@@ -27,9 +27,14 @@
   "devDependencies": {
     "eslint": "^4.1.0",
     "eslint-config-airbnb-base": "^12.1.0",
-    "eslint-plugin-import": "^2.10.0"
+    "eslint-plugin-import": "^2.10.0",
+    "jest": "^22.4.3",
+    "jest-environment-node": "^22.4.3"
   },
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "jest --forceExit --runInBand ./tests/*"
+  },
+  "jest": {
+    "testEnvironment": "node"
   }
 }

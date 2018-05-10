@@ -18,7 +18,7 @@ module.exports = class extends YoGenerator {
   /**
    * Get git repository origin url
    * @param {string} [defaultValue] set default returned value
-   * @return {string}
+   * @return {string} Returns git origin url
    */
   static getGitOrigin(defaultValue = '') {
     if (!shell.which('git')) return defaultValue;
@@ -27,5 +27,32 @@ module.exports = class extends YoGenerator {
       .stdout
       .trim();
     return res.includes('Not a git repository') ? defaultValue : res;
+  }
+
+  /**
+   * Check is value null
+   * @param {*} val
+   * @return {boolean} Returns true if val is null
+   */
+  static isNull(val) {
+    return val === null;
+  }
+
+  /**
+   * Check is value undefined
+   * @param {*} val
+   * @return {boolean} Returns true if val is undefined
+   */
+  static isUndefined(val) {
+    return val === undefined;
+  }
+
+  /**
+   * Create slug string
+   * @param {String} str
+   * @return {String}
+   */
+  static slugify(str) {
+    return str.toLowerCase().replace(/\s+/g, '-');
   }
 };
